@@ -23,10 +23,18 @@ const store = createStore(rootReducer, applyMiddleware(thunk, logger));
 addBtn.onclick = () => store.dispatch(increment());
 subBtn.onclick = () => store.dispatch(decrement());
 asyncBtn.onclick = () => store.dispatch(asyncIncrement());
-themeBtn.onclick = () => store.dispatch(changeTheme());
+themeBtn.onclick = () => {
+    const newTheme = document.body.classList.contains("light")
+        ? "dark"
+        : "light";
+    store.dispatch(changeTheme(newTheme));
+};
 
 store.subscribe(() => {
-    counter.innerHTML = store.getState().counter;
+    const state = store.getState();
+    console.log(state);
+    counter.innerHTML = state.counter;
+    document.body.className = state.theme;
 });
 
 store.dispatch({ type: "init" });

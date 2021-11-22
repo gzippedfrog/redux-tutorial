@@ -12,10 +12,10 @@ function counterReducer(state = 0, action) {
     }
 }
 
-function themeReducer(state = { value: "light" }, action) {
+function themeReducer(state = "light", action) {
     switch (action.type) {
         case CHANGE_THEME:
-            return { ...state, value: "dark" };
+            return action.payload;
         default:
             return state;
     }
