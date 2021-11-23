@@ -32,9 +32,12 @@ themeBtn.onclick = () => {
 
 store.subscribe(() => {
     const state = store.getState();
-    console.log(state);
+    // console.log(state);
     counter.innerHTML = state.counter;
-    document.body.className = state.theme;
+    document.body.className = state.theme.value;
+    [addBtn, subBtn, asyncBtn, themeBtn].forEach(
+        btn => (btn.disabled = state.theme.disabled)
+    );
 });
 
-store.dispatch({ type: "init" });
+store.dispatch({ type: "init_" });

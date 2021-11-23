@@ -1,9 +1,9 @@
 body {
-    transition: 0.2s all ease-in;
+    /* transition: 0.2s all ease-in; */
 }
 
 body.dark {
-    background: #343a40;
+    background: #1e1e1e;
     color: #fff;
 }
 
@@ -12,7 +12,7 @@ body.dark hr {
 }
 
 body.dark .card {
-    background: #343a40;
+    background: #1e1e1e;
     border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
